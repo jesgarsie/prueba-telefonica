@@ -1,0 +1,25 @@
+# Default values for jgsierrachart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: jgsierra
+
+mongo:
+  name: mongo
+  app: mongo
+  image: mongo:4.2
+  port: 27017
+
+api:
+  name: api-todo
+  app: api-todo
+  image: apitodo
+  port: 8080
+
+cli:
+  name: cli-todo
+  app: cli-todo
+  image: clitodo
+  #Tiempo de ejecucion del pod para cli
+  tiempoejecucion: infinity
+
+replicas: 1

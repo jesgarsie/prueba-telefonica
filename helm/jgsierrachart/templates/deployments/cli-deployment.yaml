@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.cli.name }}-deployment
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.cli.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.cli.app }}
+    spec:
+      containers:
+        - name: {{ .Values.cli.app }}
+          image: {{ .Values.cli.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          command: ["sleep", {{ .Values.cli.tiempoejecucion }}]
